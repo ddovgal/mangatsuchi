@@ -6,7 +6,11 @@
 
     <groupId>ua.ddovgal.tracker-kun</groupId>
     <artifactId>tracker-kun</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>core</module>
+    </modules>
 
     <name>tracker-kun</name>
     <url>https://github.com/ddovgal/tracker-kun</url>
@@ -37,18 +41,21 @@
         <mockito-core.version>2.24.0</mockito-core.version>
         <assertj-core.version>3.11.1</assertj-core.version>
         <hamcrest.version>2.1</hamcrest.version>
+        <lombok.version>1.18.6</lombok.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <!--region Modules-->
             <!--endregion-->
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
 
             <!--region Testing-->
             <dependency>
