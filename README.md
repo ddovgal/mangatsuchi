@@ -1,14 +1,19 @@
-# TrackerKun
+# TrackerKun [![tg_logo](https://img.shields.io/badge/Telegram-bot-blue.svg?logo=Telegram&style=popout "Telegram")](http://telegram.me/TrackerKun_bot)
 
 TrackerKun is a Telegram bot to track and notify the release of new manga chapter.
 
 ## Getting Started
-
+--------------------------stopped-here
 Currently, you can use manga from this sources:
 - ReadManga [🇷🇺]
 - MintManga [🇷🇺]
+- MangaLib [🇷🇺]
+- MangaFox [🇺🇸]
 
 ### Prerequisites
+
+- Java 8 or newer
+- Running PostgreSQL instance. Locally or on cloud
 
 What things you need to install the software and how to install them
 
