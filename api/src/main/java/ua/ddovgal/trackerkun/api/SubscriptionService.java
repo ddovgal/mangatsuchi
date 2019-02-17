@@ -32,4 +32,12 @@ public interface SubscriptionService {
      * @return
      */
     List<Manga> getSubscriptionList(Account account);
+
+    /**
+     * getSubscribersList documentation
+     *
+     * @param manga
+     * @return
+     */
+    List<Account> getSubscribersList(Manga manga);
 }

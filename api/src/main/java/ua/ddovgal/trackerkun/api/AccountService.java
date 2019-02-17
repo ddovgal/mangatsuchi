@@ -10,7 +10,16 @@ import java.util.function.Function;
  * AccountService documentation
  */
 public interface AccountService {
-    <T extends ConsumerAuthData> List<T> getAuthDataOfConsumer(Account account, Class<T> consumerAuthDataClass, Function<CommonAuthData, T> converter);
+    /**
+     * getAuthDataOfConsumer documentation
+     *
+     * @param account
+     * @param consumerAuthDataClass
+     * @param converter
+     * @param <T>
+     * @return
+     */
+    <T extends ConsumerAuthData> T getAuthDataOfConsumer(Account account, Class<T> consumerAuthDataClass, Function<CommonAuthData, T> converter);
 
     /**
      * createAccountWithAuthData documentation

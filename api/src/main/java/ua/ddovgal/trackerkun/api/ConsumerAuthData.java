@@ -1,14 +1,12 @@
 package ua.ddovgal.trackerkun.api;
 
-import ua.ddovgal.trackerkun.domain.CommonAuthData;
-
 /**
  * ConsumerAuthData documentation
  */
 public abstract class ConsumerAuthData {
     /**
      * ConsumerAuthData documentation
-     * need this to different to Subclass(CommonAuthData commonForm) could be
+     * need this for constructors different to {@link #ConsumerAuthData(String)} would be able to exist
      */
     public ConsumerAuthData() {
     }
@@ -18,7 +16,7 @@ public abstract class ConsumerAuthData {
      *
      * @param commonForm
      */
-    public ConsumerAuthData(CommonAuthData commonForm) {
+    public ConsumerAuthData(String commonForm) {
         processCommonForm(commonForm);
     }
 
@@ -27,12 +25,12 @@ public abstract class ConsumerAuthData {
      *
      * @param commonForm
      */
-    abstract void processCommonForm(CommonAuthData commonForm);
+    abstract void processCommonForm(String commonForm);
 
     /**
      * toCommonForm documentation
      *
      * @return
      */
-    public abstract CommonAuthData toCommonForm();
+    public abstract String toCommonForm();
 }

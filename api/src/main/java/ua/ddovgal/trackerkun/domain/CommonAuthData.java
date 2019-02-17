@@ -3,8 +3,6 @@ package ua.ddovgal.trackerkun.domain;
 import lombok.Getter;
 import ua.ddovgal.trackerkun.api.ConsumerAuthData;
 
-import java.util.List;
-
 /**
  * CommonAuthData
  */
@@ -19,7 +17,7 @@ public final class CommonAuthData {
      * commonFormIdentifier
      */
     @Getter
-    private List<String> commonFormIdentifier;
+    private String commonFormIdentifier;
 
     /**
      * CommonAuthData
@@ -27,7 +25,7 @@ public final class CommonAuthData {
      * @param consumerType
      * @param commonFormIdentifier
      */
-    public CommonAuthData(Class<? extends ConsumerAuthData> consumerType, List<String> commonFormIdentifier) {
+    public CommonAuthData(Class<? extends ConsumerAuthData> consumerType, String commonFormIdentifier) {
         this.consumerType = consumerType;
         this.commonFormIdentifier = commonFormIdentifier;
     }

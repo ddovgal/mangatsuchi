@@ -18,11 +18,11 @@ public interface MangaProvider {
     String getName();
 
     /**
-     * getOverallLanguage documentation
+     * getMainLanguage documentation
      *
      * @return
      */
-    String getOverallLanguage();
+    String getMainLanguage();
 
     /**
      * searchByTitle documentation
@@ -37,10 +37,10 @@ public interface MangaProvider {
     /**
      * getMangaChaptersCondition documentation
      *
-     * @param mangaSourceId
+     * @param manga
      * @return
      */
-    ChaptersCondition getMangaChaptersCondition(String mangaSourceId);
+    ChaptersCondition getMangaChaptersCondition(Manga manga);
 
     /**
      * getGlobalIdentifier documentation
