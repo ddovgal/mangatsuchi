@@ -17,6 +17,7 @@ public interface NotificationConsumer {
 
     /**
      * ready documentation
+     * Must be non-blocking.
      */
     void ready();
 }

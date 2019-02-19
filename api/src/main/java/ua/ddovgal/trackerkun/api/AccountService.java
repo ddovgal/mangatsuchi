@@ -1,26 +1,13 @@
 package ua.ddovgal.trackerkun.api;
 
 import ua.ddovgal.trackerkun.domain.Account;
-import ua.ddovgal.trackerkun.domain.CommonAuthData;
 
-import java.util.List;
-import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * AccountService documentation
  */
 public interface AccountService {
-    /**
-     * getAuthDataOfConsumer documentation
-     *
-     * @param account
-     * @param consumerAuthDataClass
-     * @param converter
-     * @param <T>
-     * @return
-     */
-    <T extends ConsumerAuthData> T getAuthDataOfConsumer(Account account, Class<T> consumerAuthDataClass, Function<CommonAuthData, T> converter);
-
     /**
      * createAccountWithAuthData documentation
      *
@@ -45,12 +32,9 @@ public interface AccountService {
     Account getAccountOfAuthData(ConsumerAuthData consumerAuthData);
 
     /**
-     * getAllAccountsAuthDataOfConsumer documentation
+     * getAllAccounts documentation
      *
-     * @param consumerAuthDataClass
-     * @param converter
-     * @param <T>
      * @return
      */
-    <T extends ConsumerAuthData> List<T> getAllAccountsAuthDataOfConsumer(Class<T> consumerAuthDataClass, Function<CommonAuthData, T> converter);
+    Stream<Account> getAllAccounts();
 }

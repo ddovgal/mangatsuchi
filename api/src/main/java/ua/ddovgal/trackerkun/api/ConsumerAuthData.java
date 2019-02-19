@@ -4,33 +4,48 @@ package ua.ddovgal.trackerkun.api;
  * ConsumerAuthData documentation
  */
 public abstract class ConsumerAuthData {
+
+    private String username;
+
     /**
      * ConsumerAuthData documentation
-     * need this for constructors different to {@link #ConsumerAuthData(String)} would be able to exist
+     * need this for constructors different to {@link #ConsumerAuthData(String, String)} would be able to exist
      */
-    public ConsumerAuthData() {
+    public ConsumerAuthData(String username) {
+        this.username = username;
     }
 
     /**
      * ConsumerAuthData documentation
      *
-     * @param commonForm
+     * @param username
+     * @param identifier
      */
-    public ConsumerAuthData(String commonForm) {
-        processCommonForm(commonForm);
+    public ConsumerAuthData(String username, String identifier) {
+        this.username = username;
+        processIdentifier(identifier);
     }
 
     /**
-     * processCommonForm documentation
-     *
-     * @param commonForm
-     */
-    abstract void processCommonForm(String commonForm);
-
-    /**
-     * toCommonForm documentation
+     * getUsername documentation
      *
      * @return
      */
-    public abstract String toCommonForm();
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * processIdentifier documentation
+     *
+     * @param identifier
+     */
+    abstract void processIdentifier(String identifier);
+
+    /**
+     * getIdentifier documentation
+     *
+     * @return
+     */
+    public abstract String getIdentifier();
 }

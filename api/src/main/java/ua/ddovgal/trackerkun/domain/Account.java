@@ -1,8 +1,8 @@
 package ua.ddovgal.trackerkun.domain;
 
 import lombok.Data;
+import ua.ddovgal.trackerkun.api.ConsumerAuthData;
 
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -19,7 +19,7 @@ public class Account {
      */
     private Privilege privilege;
     /**
-     * commonAuthDataList documentation
+     * consumerAuthData documentation
      */
-    private List<CommonAuthData> commonAuthDataList;
+    private ConsumerAuthData consumerAuthData;
 }
