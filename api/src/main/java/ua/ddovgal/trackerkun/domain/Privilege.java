@@ -1,8 +1,19 @@
 package ua.ddovgal.trackerkun.domain;
 
 /**
- * Privilege
+ * Privilege allowing to perform certain actions.
  */
 public enum Privilege {
-    COMMON_USER, PRIVILEGED_USER, CREATOR
+    /**
+     * Common user.
+     */
+    COMMON_USER,
+    /**
+     * User that have more permissions than common user.
+     */
+    PRIVILEGED_USER,
+    /**
+     * Creator, It's me :) Has god abilities in this scope.
+     */
+    CREATOR
 }

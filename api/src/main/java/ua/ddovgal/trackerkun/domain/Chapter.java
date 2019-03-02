@@ -2,25 +2,26 @@ package ua.ddovgal.trackerkun.domain;
 
 import lombok.Data;
 
+import ua.ddovgal.trackerkun.api.MangaProvider;
+
 /**
- * Chapter
+ * Descriptor of the chapter of some {@link Manga}.
  */
 @Data
 public class Chapter {
+
     /**
-     * title
+     * Chapter's title.
      */
     private String title;
     /**
-     * releaseListNumber
+     * Chapter's number. Because some mangas have numbering in their own format this field is a {@link String} type. Could be in any numeric
+     * or maybe not format. Describes number/position of chapter in scope of it's manga.
      */
-    private int releaseListNumber; //todo: do i need this field ? cus there is `ownFormatReleaseNumber`
+    private String releaseNumber;
     /**
-     * ownFormatReleaseNumber
-     */
-    private String ownFormatReleaseNumber;
-    /**
-     * sourceIdentifier
+     * Chapter's identifier. Could be identifier in scope of just manga or whole all-mangas list. Depends on {@link MangaProvider} of the
+     * {@link Manga} to which the chapter belongs.
      */
     private String sourceIdentifier;
 }

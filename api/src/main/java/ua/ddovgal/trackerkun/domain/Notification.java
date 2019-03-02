@@ -5,41 +5,43 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import ua.ddovgal.trackerkun.api.ConsumerNotifier;
+
 /**
- * Notification
+ * Notification that will be send to user by certain {@link ConsumerNotifier}.
  */
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
 public class Notification {
+
     /**
-     * eventType
+     * Type of occurred event which to notify.
      */
     private EventType eventType;
     /**
-     * manga
+     * Associated manga. Could be {@code null} if {@link #eventType} is {@link EventType#SYSTEM}.
      */
     private Manga manga;
     /**
-     * chapter
+     * Associated chapter. Could be {@code null}. For example when {@link #eventType} is {@link EventType#SYSTEM}, or there are no chapters
+     * in this manga.
      */
     private Chapter chapter;
 
     /**
-     * Optional notification message which is used and not null only when {@link #eventType}
-     * is {@link EventType#SYSTEM}.
-     * Expected that in that case only this message is describing notification and both manga
-     * and chapter are null and unused.
+     * Optional notification message which is used and not {@code null} only when {@link #eventType} is {@link EventType#SYSTEM}. Expected
+     * that in that case only this message is describing notification and both manga and chapter are {@code null} and unused.
      */
     private String optionalMessage;
 
     /**
-     * Notification
+     * Create notification of not {@link EventType#SYSTEM} type from not null manga and nullable chapter.
      *
-     * @param eventType
-     * @param manga
-     * @param chapter
+     * @param eventType type of occurred event.
+     * @param manga     notification associated manga.
+     * @param chapter   notification associated chapter.
      */
     public Notification(EventType eventType, Manga manga, Chapter chapter) {
         if (eventType == EventType.SYSTEM) {
@@ -52,12 +54,12 @@ public class Notification {
     }
 
     /**
-     * Notification
+     * Create notification of {@link EventType#SYSTEM} type with notification message.
      *
-     * @param optionalMessage
+     * @param message notification message.
      */
-    public Notification(String optionalMessage) {
-        this.optionalMessage = optionalMessage;
+    public Notification(String message) {
+        this.optionalMessage = message;
         eventType = EventType.SYSTEM;
     }
 }

@@ -1,33 +1,35 @@
 package ua.ddovgal.trackerkun.domain;
 
-import lombok.Data;
-import ua.ddovgal.trackerkun.api.MangaProvider;
-
 import java.util.UUID;
 
+import lombok.Data;
+
+import ua.ddovgal.trackerkun.api.MangaProvider;
+
 /**
- * Manga
+ * Class describing manga.
  */
 @Data
 public class Manga {
+
     /**
-     * id
+     * Manga's ID.
      */
     private UUID id;
     /**
-     * title
+     * Manga's title.
      */
     private String title;
     /**
-     * provider
+     * Provider of manga. Resource to which manga belongs.
      */
     private MangaProvider provider;
     /**
-     * language
+     * Manga's language.
      */
     private String language;
     /**
-     * sourceIdentifier
+     * Manga's identifier in scope of {@link MangaProvider}.
      */
     private String sourceIdentifier;
 }

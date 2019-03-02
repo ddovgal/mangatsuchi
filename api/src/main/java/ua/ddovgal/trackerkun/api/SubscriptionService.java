@@ -1,43 +1,50 @@
 package ua.ddovgal.trackerkun.api;
 
+import java.util.UUID;
+import java.util.stream.Stream;
+
 import ua.ddovgal.trackerkun.domain.Account;
 import ua.ddovgal.trackerkun.domain.Manga;
-
-import java.util.List;
+import ua.ddovgal.trackerkun.exception.InvalidIdProvidedException;
 
 /**
- * SubscriptionService documentation
+ * Service to provide subscription related operations. The subscription is meant as request of the {@link Account} to receive the
+ * notifications related to {@link Manga}. In other words it's just a pair of {@link Account} and {@link Manga}, additional properties are
+ * not so important.
  */
 public interface SubscriptionService {
-    /**
-     * subscribe documentation
-     *
-     * @param account
-     * @param manga
-     */
-    void subscribe(Account account, Manga manga);
 
     /**
-     * unsubscribe documentation
+     * Subscribe to manga {@link Account}'s ID. In another words it's create subscription of {@link Account} with {@code accountId} to
+     * {@code manga}.
      *
-     * @param account
-     * @param manga
+     * @param accountId id of account which is subscribing.
+     * @param manga     manga subscribe to.
+     *
+     * @throws InvalidIdProvidedException in case when there is no {@link Account} with {@code accountId} ID.
      */
-    void unsubscribe(Account account, Manga manga);
+    void subscribe(UUID accountId, Manga manga) throws InvalidIdProvidedException;
 
     /**
-     * getSubscriptionList documentation
+     * Unsubscribe to manga {@link Account}'s ID. In another words it is operation opposite to {@link SubscriptionService#subscribe(UUID,
+     * Manga)} method. Read detailed description of subscription action there.
      *
-     * @param account
-     * @return
+     * @param accountId id of account which is unsubscribing.
+     * @param manga     manga unsubscribe to.
+     *
+     * @throws InvalidIdProvidedException in case when there is no {@link Account} with {@code accountId} ID.
+     * @see SubscriptionService#subscribe(UUID, Manga).
      */
-    List<Manga> getSubscriptionList(Account account);
+    void unsubscribe(UUID accountId, Manga manga) throws InvalidIdProvidedException;
 
     /**
-     * getSubscribersList documentation
+     * Get all manga which {@link Account} with {@code accountId} is subscribed for.
      *
-     * @param manga
-     * @return
+     * @param accountId ID of account.
+     *
+     * @return stream of manga which is account subscribed for.
+     *
+     * @throws InvalidIdProvidedException in case when there is no {@link Account} with {@code accountId} ID.
      */
-    List<Account> getSubscribersList(Manga manga);
+    Stream<Manga> getSubscribedManga(UUID accountId) throws InvalidIdProvidedException;
 }

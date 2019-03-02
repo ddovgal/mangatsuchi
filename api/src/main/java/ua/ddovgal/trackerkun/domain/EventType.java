@@ -1,7 +1,7 @@
 package ua.ddovgal.trackerkun.domain;
 
 /**
- * EventType
+ * Type of some occurred manga-related event.
  */
 public enum EventType {
     SYSTEM("Common notification which more like an announcement, not related to chapter or manga"),
@@ -13,16 +13,15 @@ public enum EventType {
     CHAPTERS_INSIDE_INSERTION("When last chapter was nod changed, but chapter's quantity was increased");
 
     /**
-     * description
+     * Description of event.
      */
     private final String description;
 
     /**
-     * EventType
+     * Create {@link EventType} with description.
      *
-     * @param description
+     * @param description description of event.
      */
     EventType(String description) {
         this.description = description;
-    }
-}
+    }}
