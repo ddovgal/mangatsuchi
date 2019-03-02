@@ -19,18 +19,6 @@ public interface AccountService {
      */
     Account createAccountWithAuthData(ConsumerAuthData consumerAuthData);
 
-    //region If there will be a multi-ConsumerAuthData, than uncomment
-    //    /**
-    //     * Attaches additional {@link ConsumerAuthData} to existing {@link Account}.
-    //     *
-    //     * @param accountId        existing account's ID.
-    //     * @param consumerAuthData attached additional auth data which identifies the user in consumer's system.
-    //     *
-    //     * @throws InvalidIdProvidedException in case when there is no {@link Account} with {@code accountId} ID.
-    //     */
-    //    void attachAuthData(UUID accountId, ConsumerAuthData consumerAuthData) throws InvalidIdProvidedException;
-    //endregion
-
     /**
      * Find possibly existing account by auth data identifying the user in consumer's system.
      *
