@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import jdk.internal.jline.internal.Nullable;
 import ua.ddovgal.trackerkun.api.ConsumerNotifier;
 
 /**
@@ -23,18 +24,21 @@ public class Notification {
     /**
      * Associated manga. Could be {@code null} if {@link #eventType} is {@link EventType#SYSTEM}.
      */
+    @Nullable
     private Manga manga;
     /**
      * Associated chapter. Could be {@code null}. For example when {@link #eventType} is {@link EventType#SYSTEM}, or there are no chapters
      * in this manga.
      */
+    @Nullable
     private Chapter chapter;
 
     /**
      * Optional notification message which is used and not {@code null} only when {@link #eventType} is {@link EventType#SYSTEM}. Expected
      * that in that case only this message is describing notification and both manga and chapter are {@code null} and unused.
      */
-    private String optionalMessage;
+    @Nullable
+    private String systemEventMessage;
 
     /**
      * Create notification of not {@link EventType#SYSTEM} type from not null manga and nullable chapter.
@@ -42,6 +46,8 @@ public class Notification {
      * @param eventType type of occurred event.
      * @param manga     notification associated manga.
      * @param chapter   notification associated chapter.
+     *
+     * @throws IllegalArgumentException when try to create notification of {@link EventType#SYSTEM} type
      */
     public Notification(EventType eventType, Manga manga, Chapter chapter) {
         if (eventType == EventType.SYSTEM) {
@@ -54,12 +60,21 @@ public class Notification {
     }
 
     /**
-     * Create notification of {@link EventType#SYSTEM} type with notification message.
+     * Create special notification of {@link EventType#SYSTEM} type with notification message.
      *
      * @param message notification message.
      */
-    public Notification(String message) {
-        this.optionalMessage = message;
+    private Notification(String message) {
+        this.systemEventMessage = message;
         eventType = EventType.SYSTEM;
+    }
+
+    /**
+     * Create special notification of {@link EventType#SYSTEM} type with notification message.
+     *
+     * @param message notification message.
+     */
+    public static Notification ofSystemEvent(String message) {
+        return new Notification(message);
     }
 }
