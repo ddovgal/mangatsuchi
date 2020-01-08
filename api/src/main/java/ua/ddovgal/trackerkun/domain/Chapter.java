@@ -11,16 +11,18 @@ import ua.ddovgal.trackerkun.api.MangaProvider;
 public class Chapter {
 
     /**
-     * Chapter's title.
+     * Chapter title.
      */
     private String title;
+
     /**
-     * Chapter's number. Because some mangas have numbering in their own format this field is a {@link String} type. Could be in any numeric
-     * or maybe not format. Describes number/position of chapter in scope of it's manga.
+     * Chapter number. Because some mangas have numbering in their own format this field is a {@link String} type. Could be in any numeric
+     * (or even not numeric) format. Describes number/position of chapter in scope of it's manga.
      */
     private String releaseNumber;
+
     /**
-     * Chapter's identifier. Could be identifier in scope of just manga or whole all-mangas list. Depends on {@link MangaProvider} of the
+     * Chapter identifier. Could be identifier in scope of just manga or whole all-mangas list. It depends on {@link MangaProvider} of the
      * {@link Manga} to which the chapter belongs.
      */
     private String sourceIdentifier;

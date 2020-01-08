@@ -1,66 +1,89 @@
 package ua.ddovgal.trackerkun.api;
 
-import ua.ddovgal.trackerkun.domain.Account;
 import ua.ddovgal.trackerkun.domain.Chapter;
+import ua.ddovgal.trackerkun.domain.GenericNotification;
 import ua.ddovgal.trackerkun.domain.Manga;
-import ua.ddovgal.trackerkun.domain.SystemNotification;
 
 /**
- * Service to send notifications to certain consumer system. Contains methods for sending notification for each event type.
+ * Service to send notifications to certain consumer. Contains methods for sending each notification type.
+ *
+ * @param <T> type of {@link AuthenticationData} current notifier works with.
  */
-public interface ConsumerNotifier {
-
+public interface ConsumerNotifier<T extends AuthenticationData> {
+    //    /**
+    //     * Send plain test message to provided {@code account}. Because of it's simplicity it is expected that every possible consumer will be
+    //     * able to provide this type of notification. Intended to be used for something like fallback type of notification or some general
+    //     * purpose notification.
+    //     *
+    //     * @param account account of user to receive notification.
+    //     * @param message text to send.
+    //     */
+    //    void notifyWithPlainText(Account account, String message);
+    //
+    //    /**
+    //     * Send prepared {@code message} to provided {@code account}. This method intended to just forward received message, hence {@code
+    //     * message} should be already prepared for send and known by certain notifier class.
+    //     *
+    //     * @param <T>     type of message objects for certain notifier.
+    //     * @param account account of user to receive notification.
+    //     * @param message message object to send.
+    //     */
+    //    <T> void notifyWithMessage(Account account, T message);
     /**
-     * Send system {@code notification} to provided {@code account}. It is expected that data for system notifications will be provided by
-     * some privileged user, by sending manually written message, hence notification of this type is triggered by real user rather then
-     * system.
+     * Send generic {@code notification} to user by provided {@code authData}. It is expected that data for generic notifications will be
+     * provided by some privileged user, by sending manually written message, hence notification of this type is triggered by real user
+     * rather then system. Also it is expected to use this method for system-related notifications only.
      *
-     * @param account      account of user to receive notification.
+     * @param authData     authentication data describing account to receive notification in the scope of a current notifier.
      * @param notification system notification to send.
+     *
+     * @see GenericNotification for more details about notification and it's propose.
      */
-    void sendSystemNotification(Account account, SystemNotification notification);
+    void sendGenericNotification(T authData, GenericNotification notification);
 
     /**
-     * Notify provided {@code account} that some number of new (really new, not just update) {@code manga}'s chapters released.
+     * Notify user by provided {@code authData} that some number of new (really new, not just updated) {@code manga} chapters released.
      *
-     * @param account       account of user to receive notification.
+     * @param authData      authentication data describing account to receive notification in the scope of a current notifier.
      * @param latestChapter latest among released chapters.
      * @param manga         notification associated manga.
      */
-    void notifyChaptersReleased(Account account, Chapter latestChapter, Manga manga);
+    void notifyChaptersReleased(T authData, Chapter latestChapter, Manga manga);
 
     /**
-     * Notify provided {@code account} that new chapter released, but by some indicators it seems, that it's just some kind of update.
+     * Notify user by provided {@code authData} that new chapter released, but by some indicators it seems, that it's just some kind of
+     * update.
      *
-     * @param account        account of user to receive notification.
+     * @param authData       authentication data describing account to receive notification in the scope of a current notifier.
      * @param updatedChapter notification associated updated chapter.
      * @param manga          notification associated manga.
      */
-    void notifyLastChapterUpdated(Account account, Chapter updatedChapter, Manga manga);
+    void notifyLastChapterUpdated(T authData, Chapter updatedChapter, Manga manga);
 
     /**
-     * Notify provided {@code account} that some number of chapters were deleted.
+     * Notify user by provided {@code authData} that some number of chapters was deleted.
      *
-     * @param account account of user to receive notification.
-     * @param manga   notification associated manga.
+     * @param authData authentication data describing account to receive notification in the scope of a current notifier.
+     * @param manga    notification associated manga.
      */
-    void notifyChaptersDeleted(Account account, Manga manga);
+    void notifyChaptersDeleted(T authData, Manga manga);
 
     /**
-     * Notify provided {@code account} that in provided {@code manga}'s {@link MangaProvider} has no chapters, and now they have appeared.
+     * Notify user by provided {@code authData} that in provided {@code manga} {@link MangaProvider} didn't have chapters, and now they have
+     * appeared.
      *
-     * @param account       account of user to receive notification.
+     * @param authData      authentication data describing account to receive notification in the scope of a current notifier.
      * @param latestChapter latest among appeared chapters.
      * @param manga         notification associated manga.
      */
-    void notifyChaptersAppeared(Account account, Chapter latestChapter, Manga manga);
+    void notifyChaptersAppeared(T authData, Chapter latestChapter, Manga manga);
 
     /**
-     * Notify provided {@code account} that in provided {@code manga} last chapter was not changed, but number of chapters has been
-     * increased. Hence chapters were inserted somewhere within.
+     * Notify user by provided {@code authData} that provided {@code manga} last chapter has not been changed, but number of chapters has
+     * been increased. Hence chapters were inserted somewhere within.
      *
-     * @param account account of user to receive notification.
-     * @param manga   notification associated manga.
+     * @param authData authentication data describing account to receive notification in the scope of a current notifier.
+     * @param manga    notification associated manga.
      */
-    void notifyChaptersAdded(Account account, Manga manga);
+    void notifyChaptersAdded(T authData, Manga manga);
 }

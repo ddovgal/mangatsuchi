@@ -11,27 +11,27 @@ import ua.ddovgal.trackerkun.domain.Account;
 public interface AccountService {
 
     /**
-     * Create a new account with provided {@link ConsumerAuthData}.
+     * Create completely new account with provided {@code authData}.
      *
-     * @param consumerAuthData auth data which identifies a user in consumer's system.
+     * @param authData auth data which identifies a user in consumer scope.
      *
      * @return new created account.
      */
-    Account createAccountWithAuthData(ConsumerAuthData consumerAuthData);
+    Account registerNewAccount(AuthenticationData authData);
 
     /**
-     * Find possibly existing account by auth data identifying the user in consumer's system.
+     * Find possibly existing associated account by provided {@code authData}.
      *
-     * @param consumerAuthData auth data which identifies the user in consumer's system.
+     * @param authData auth data which identifies the user in consumer scope.
      *
      * @return optional account.
      */
-    Optional<Account> getAccountOfAuthData(ConsumerAuthData consumerAuthData);
+    Optional<Account> getAssociatedAccount(AuthenticationData authData);
 
     /**
-     * Get {@link Stream<Account>} of all active accounts.
+     * Get the stream of all active accounts.
      *
-     * @return all active accounts.
+     * @return all active accounts stream.
      */
     Stream<Account> getAllAccounts();
 }

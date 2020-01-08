@@ -13,23 +13,27 @@ import ua.ddovgal.trackerkun.api.MangaProvider;
 public class Manga {
 
     /**
-     * Manga's ID.
+     * Manga ID.
      */
     private UUID id;
+
     /**
-     * Manga's title.
+     * Manga title.
      */
     private String title;
+
     /**
      * Provider of manga. Resource to which manga belongs.
      */
     private MangaProvider provider;
+
     /**
-     * Manga's language.
+     * Manga language.
      */
     private String language;
+
     /**
-     * Manga's identifier in scope of {@link MangaProvider}.
+     * Manga identifier in scope of {@link MangaProvider}.
      */
     private String sourceIdentifier;
 }

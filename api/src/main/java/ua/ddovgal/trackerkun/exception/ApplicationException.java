@@ -1,16 +1,16 @@
 package ua.ddovgal.trackerkun.exception;
 
 /**
- * Throws to indicate that provider didn't successfully performed operation, or result of that operation could not be consumed.
+ * Top level or root application-scoped exception describing generic failed situation.
  */
-public class MangaProviderException extends ApplicationException {
+public class ApplicationException extends Exception {
 
     /**
      * Constructs a new exception with the specified detail message.
      *
      * @param message the detail message.
      */
-    public MangaProviderException(String message) {
+    public ApplicationException(String message) {
         super(message);
     }
 
@@ -20,7 +20,7 @@ public class MangaProviderException extends ApplicationException {
      * @param message the detail message.
      * @param cause   the cause.
      */
-    public MangaProviderException(String message, Throwable cause) {
+    public ApplicationException(String message, Throwable cause) {
         super(message, cause);
     }
 }

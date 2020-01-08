@@ -1,7 +1,7 @@
 package ua.ddovgal.trackerkun.api;
 
+import java.util.List;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import ua.ddovgal.trackerkun.domain.Account;
 import ua.ddovgal.trackerkun.domain.Manga;
@@ -42,9 +42,9 @@ public interface SubscriptionService {
      *
      * @param accountId ID of account.
      *
-     * @return stream of manga which is account subscribed for.
+     * @return list of manga which is account subscribed for.
      *
      * @throws InvalidIdProvidedException in case when there is no {@link Account} with {@code accountId} ID.
      */
-    Stream<Manga> getSubscribedManga(UUID accountId) throws InvalidIdProvidedException;
+    List<Manga> getSubscribedManga(UUID accountId) throws InvalidIdProvidedException;
 }
