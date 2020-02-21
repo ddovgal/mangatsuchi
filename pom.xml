@@ -7,14 +7,14 @@
     <groupId>ua.ddovgal.tracker-kun</groupId>
     <artifactId>tracker-kun</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
 
     <modules>
         <module>api</module>
         <module>core</module>
+        <module>states</module>
     </modules>
 
-    <name>tracker-kun</name>
     <url>https://github.com/ddovgal/tracker-kun</url>
     <description>A service that monitors manga and notifies you of new chapters</description>
 
@@ -39,6 +39,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <log4j-slf4j-impl.version>2.13.0</log4j-slf4j-impl.version>
         <!--<junit.version>4.12</junit.version>
@@ -81,9 +82,7 @@
                 <artifactId>log4j-slf4j-impl</artifactId>
                 <version>${log4j-slf4j-impl.version}</version>
             </dependency>
-
             <!--endregion-->
-
 
             <!--region Testing-->
             <!--<dependency>
