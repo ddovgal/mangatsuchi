@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>ua.ddovgal.tracker-kun</groupId>
-        <artifactId>tracker-kun</artifactId>
+        <groupId>ua.ddovgal.manga-monitoring</groupId>
+        <artifactId>manga-monitoring</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>core</artifactId>
 
-    <url>https://github.com/ddovgal/tracker-kun/core</url>
+    <url>https://github.com/ddovgal/mangatsuchi/core</url>
     <description>Core classes of manga monitoring application</description>
 
     <developers>
@@ -41,7 +41,7 @@
     <dependencies>
         <!--region Modules-->
         <dependency>
-            <groupId>ua.ddovgal.tracker-kun</groupId>
+            <groupId>ua.ddovgal.manga-monitoring</groupId>
             <artifactId>api</artifactId>
         </dependency>
         <!--endregion-->

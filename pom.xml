@@ -4,18 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ua.ddovgal.tracker-kun</groupId>
-    <artifactId>tracker-kun</artifactId>
+    <groupId>ua.ddovgal.manga-monitoring</groupId>
+    <artifactId>manga-monitoring</artifactId>
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
 
     <modules>
         <module>api</module>
         <module>core</module>
-        <module>states</module>
     </modules>
 
-    <url>https://github.com/ddovgal/tracker-kun</url>
+    <url>https://github.com/ddovgal/mangatsuchi</url>
     <description>A service that monitors manga and notifies you of new chapters</description>
 
     <developers>
@@ -53,12 +52,12 @@
         <dependencies>
             <!--region Modules-->
             <dependency>
-                <groupId>ua.ddovgal.tracker-kun</groupId>
+                <groupId>ua.ddovgal.manga-monitoring</groupId>
                 <artifactId>api</artifactId>
                 <version>${version}</version>
             </dependency>
             <dependency>
-                <groupId>ua.ddovgal.tracker-kun</groupId>
+                <groupId>ua.ddovgal.manga-monitoring</groupId>
                 <artifactId>core</artifactId>
                 <version>${version}</version>
             </dependency>
