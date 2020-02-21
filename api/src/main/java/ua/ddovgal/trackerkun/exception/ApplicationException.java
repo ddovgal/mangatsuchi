@@ -1,7 +1,7 @@
 package ua.ddovgal.trackerkun.exception;
 
 /**
- * Top level or root application-scoped exception describing generic failed situation.
+ * Top level or root application-scoped exception that describes generic failed situation.
  */
 public class ApplicationException extends Exception {
 

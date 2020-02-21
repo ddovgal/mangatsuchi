@@ -7,15 +7,15 @@ import lombok.Data;
 import ua.ddovgal.trackerkun.api.AuthenticationData;
 
 /**
- * Class describing user account in scope of our system. Actually this is description of single user, who have some consumer identification
- * data, so current system could identify user in consumer scope when will notify it. Each account also have privilege to perform certain
- * actions.
+ * Pojo that describes user account in current application's scope. Actually this is description of single user, who have some consumer
+ * identification data, so current application could identify user in consumer's scope. Each account also have some privilege to perform
+ * certain actions.
  */
 @Data
 public class Account {
 
     /**
-     * Account ID scope of our system.
+     * Account ID in current application's scope.
      */
     private UUID id;
 
@@ -25,7 +25,7 @@ public class Account {
     private Privilege privilege;
 
     /**
-     * Authentication data describing user in scope of certain consumer system.
+     * Authentication data that describes user in consumer system scope.
      */
     private AuthenticationData authenticationData;
 }

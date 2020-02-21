@@ -1,18 +1,21 @@
 package ua.ddovgal.trackerkun.api;
 
+import lombok.Getter;
+
 /**
- * Authentication data describing user of some account in scope of certain consumer. All authentication data classes must be able to be
- * created from username and identifier set, to be able to deserialize.
+ * Authentication data that describes user of some account in scope of certain consumer. Since it is expected for authentication data to be
+ * serialized, it must be able to be created from username and identifier set.
  */
 public abstract class AuthenticationData {
 
     /**
      * Username of user in scope of current consumer.
      */
+    @Getter
     private String username;
 
     /**
-     * Create new authentication data object with username. In this case it is assumed that {@code username} is an identifier too. It is
+     * Creates new authentication data object with username. In this case it is assumed that {@code username} serves as an identifier. It is
      * also expected that subclasses with constructors different to {@link #AuthenticationData(String, String)} will use supper call of this
      * particular constructor.
      *
@@ -23,8 +26,9 @@ public abstract class AuthenticationData {
     }
 
     /**
-     * Create new authentication data object with username and from identifier. In this case it is expected that {@code identifier} will be
-     * processed (parsed) into internal components. The only expected purpose of this constructor is deserialization.
+     * Creates a new authentication data object with {@code username} and from {@code identifier}. In this case it is expected that {@code
+     * identifier} will be processed (parsed) into internal components. The only expected purpose of this constructor is deserialization
+     * case.
      *
      * @param username   username of user in scope of consumer.
      * @param identifier identifier of user in scope of consumer.
@@ -35,25 +39,15 @@ public abstract class AuthenticationData {
     }
 
     /**
-     * Get username of current authentication data.
-     *
-     * @return username of current authentication data.
-     */
-    //TODO: @Getter ?
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * Get user identifier of current authentication data, constructed from internal components. The only expected case for this method is
-     * serialization.
+     * Returns user identifier of current authentication data, constructed from internal components. The only expected purpose of this
+     * method is deserialization case.
      *
      * @return user identifier of current authentication data.
      */
     public abstract String getIdentifier();
 
     /**
-     * Process (parse) {@code identifier} into internal components.
+     * Process (parses) {@code identifier} into internal components.
      *
      * @param identifier identifier of user in scope of consumer.
      */

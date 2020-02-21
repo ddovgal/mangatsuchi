@@ -8,53 +8,55 @@ import ua.ddovgal.trackerkun.domain.Manga;
 import ua.ddovgal.trackerkun.exception.MangaProviderException;
 
 /**
- * Representation of service which provides manga. It is not just simple descriptor of the resource. Classes implementing this interface
- * provides full functionality of that resource, like some kind of service. So that classes describes manga provider they are representing
- * and how to interact with them.
+ * Representation of any kind of resource that provides manga.
+ * <p>
+ * It is not just simple descriptor of the resource. Implementations of this interface provides full functionality of that resource, like
+ * some kind of service. So that implementations describes manga provider they are representing and how to interact with them.
  */
 public interface MangaProvider {
 
     /**
-     * Get human-readable manga provider name.
+     * Returns human-readable manga provider name.
      *
      * @return manga provider name.
      */
     String getName();
 
     /**
-     * Get general provider manga language.
+     * Returns general provider manga language.
      *
      * @return general provider manga language.
      */
     String getMainLanguage();
 
     /**
-     * Search for manga by it's title with specific offset in found list and size of list to return. If the size of found list is smaller
-     * than the {@code size} than returned list will have that found-list size.
+     * Searches for manga by its title with specific {@code offset} in found list wherein specifying the {@code size} of the return list. If
+     * the size of found list is less than the expected than returned list will have that found-list size.
      *
      * @param title  title of manga to search.
-     * @param offset offset in list that will be returned by provider as a response for search-by-name request.
-     * @param size   size of list to return.
+     * @param offset offset in the list that will be returned by provider as a response for search-by-name request.
+     * @param size   expected size of list to receive.
      *
-     * @throws MangaProviderException in case provider didn't successfully returned the result, or it could not be consumed.
+     * @throws MangaProviderException in case provider didn't successfully respond or if the result couldn't be consumed.
      */
     List<Manga> searchByTitle(String title, int offset, int size) throws MangaProviderException;
 
     /**
-     * Get current condition of manga on resource. This method returns most actual manga chapters condition, not by retrieving from some
-     * kind of storage, but an actually asking resource about chapters current condition.
+     * Returns current condition of the {@code manga}. Returns most actual chapters condition, not by retrieving it from some kind of
+     * storage, but an actually asking resource about most actual condition.
      *
      * @param manga manga to find chapters condition.
      *
      * @return most actual manga chapters condition.
      *
-     * @throws MangaProviderException in case provider didn't successfully returned the result, or it could not be consumed.
+     * @throws MangaProviderException in case provider didn't successfully respond or if the result couldn't be consumed.
      */
     ChaptersCondition getChaptersCondition(Manga manga) throws MangaProviderException;
 
     /**
-     * Get the global identifier of the manga. This identifier can identify manga not only in the context of the current provider. In fact,
-     * this identifier contains in addition to the manga identifier also the provider identifier, allowing to globally identify the manga.
+     * Returns the global identifier of the manga. This identifier can identify manga not only in the context of the current provider. In
+     * fact, this identifier in addition to the manga's identifier also contains the provider's identifier, allowing to globally identify
+     * the manga.
      *
      * @param manga manga to get the global identifier.
      *
@@ -63,8 +65,8 @@ public interface MangaProvider {
     String getGlobalIdentifier(Manga manga);
 
     /**
-     * Get the global identifier of the chapter. This identifier can identify chapter not only in the context of it's manga or manga
-     * provider. In fact, this identifier contains in addition to the chapter identifier also the provider and optionally manga identifiers,
+     * Returns the global identifier of the chapter. This identifier can identify chapter not only in the context of it's manga or manga
+     * provider. In fact, this identifier in addition to the chapter's identifier also contains the provider's one and optionally manga's,
      * allowing to globally identify the chapter.
      *
      * @param manga   manga which chapter belongs to.

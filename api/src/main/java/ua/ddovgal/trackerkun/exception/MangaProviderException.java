@@ -1,7 +1,7 @@
 package ua.ddovgal.trackerkun.exception;
 
 /**
- * Throws to indicate that provider didn't successfully performed operation, or result of that operation could not be consumed.
+ * Throws to indicate that provider didn't successfully perform operation, or result of that operation could not be consumed.
  */
 public class MangaProviderException extends ApplicationException {
 

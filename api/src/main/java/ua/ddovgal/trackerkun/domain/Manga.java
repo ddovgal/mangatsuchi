@@ -7,7 +7,7 @@ import lombok.Data;
 import ua.ddovgal.trackerkun.api.MangaProvider;
 
 /**
- * Class describing manga.
+ * Pojo that describes manga.
  */
 @Data
 public class Manga {
@@ -23,7 +23,7 @@ public class Manga {
     private String title;
 
     /**
-     * Provider of manga. Resource to which manga belongs.
+     * Provider of manga, resource to which manga belongs.
      */
     private MangaProvider provider;
 
@@ -33,7 +33,7 @@ public class Manga {
     private String language;
 
     /**
-     * Manga identifier in scope of {@link MangaProvider}.
+     * Manga identifier in {@link MangaProvider}'s scope.
      */
     private String sourceIdentifier;
 }

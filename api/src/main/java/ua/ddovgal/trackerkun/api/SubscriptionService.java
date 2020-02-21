@@ -8,15 +8,16 @@ import ua.ddovgal.trackerkun.domain.Manga;
 import ua.ddovgal.trackerkun.exception.InvalidIdProvidedException;
 
 /**
- * Service to provide subscription related operations. The subscription is meant as request of the {@link Account} to receive the
- * notifications related to {@link Manga}. In other words it's just a pair of {@link Account} and {@link Manga}, additional properties are
- * not so important.
+ * Service that provides ability to subscription related operations.
+ * <p>
+ * The subscription can be understood as request of the {@link Account} to receive the notifications related to the certain {@link Manga}.
+ * In stored data scope words it's just a pair of {@link Account} and {@link Manga}, additional properties are not so important.
  */
 public interface SubscriptionService {
 
     /**
-     * Subscribe to manga {@link Account}'s ID. In another words it's create subscription of {@link Account} with {@code accountId} to
-     * {@code manga}.
+     * Subscribes {@link Account} of provided {@code accountId} to provided {@code manga}. In other words it creates subscription of {@link
+     * Account} with {@code accountId} to {@code manga}.
      *
      * @param accountId id of account which is subscribing.
      * @param manga     manga subscribe to.
@@ -26,23 +27,23 @@ public interface SubscriptionService {
     void subscribe(UUID accountId, Manga manga) throws InvalidIdProvidedException;
 
     /**
-     * Unsubscribe to manga {@link Account}'s ID. In another words it is operation opposite to {@link SubscriptionService#subscribe(UUID,
-     * Manga)} method. Read detailed description of subscription action there.
+     * Unsubscribes {@link Account} of provided {@code accountId} from provided {@code manga}. In other words it's an opposite operation to
+     * {@link SubscriptionService#subscribe(UUID, Manga)} method.
      *
      * @param accountId id of account which is unsubscribing.
      * @param manga     manga unsubscribe to.
      *
      * @throws InvalidIdProvidedException in case when there is no {@link Account} with {@code accountId} ID.
-     * @see SubscriptionService#subscribe(UUID, Manga).
+     * @see SubscriptionService#subscribe(UUID, Manga) for detailed description of subscription action.
      */
     void unsubscribe(UUID accountId, Manga manga) throws InvalidIdProvidedException;
 
     /**
-     * Get all manga which {@link Account} with {@code accountId} is subscribed for.
+     * Returns all manga {@link Account} with {@code accountId} is subscribed for.
      *
-     * @param accountId ID of account.
+     * @param accountId id of account.
      *
-     * @return list of manga which is account subscribed for.
+     * @return list of manga account subscribed for.
      *
      * @throws InvalidIdProvidedException in case when there is no {@link Account} with {@code accountId} ID.
      */
