@@ -8,13 +8,15 @@
     <artifactId>tracker-kun</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>api</module>
+        <module>core</module>
     </modules>
 
     <name>tracker-kun</name>
     <url>https://github.com/ddovgal/tracker-kun</url>
-    <description>Telegram bot to track and notify the release of new manga chapter</description>
+    <description>A service that monitors manga and notifies you of new chapters</description>
 
     <developers>
         <developer>
@@ -39,16 +41,26 @@
         <maven.compiler.target>11</maven.compiler.target>
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <log4j-slf4j-impl.version>2.13.0</log4j-slf4j-impl.version>
-        <junit.version>4.12</junit.version>
+        <!--<junit.version>4.12</junit.version>
         <mockito-core.version>2.24.0</mockito-core.version>
         <assertj-core.version>3.11.1</assertj-core.version>
-        <hamcrest.version>2.1</hamcrest.version>
-        <lombok.version>1.18.6</lombok.version>
+        <hamcrest.version>2.1</hamcrest.version>-->
+        <lombok.version>1.18.12</lombok.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <!--region Modules-->
+            <dependency>
+                <groupId>ua.ddovgal.tracker-kun</groupId>
+                <artifactId>api</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ua.ddovgal.tracker-kun</groupId>
+                <artifactId>core</artifactId>
+                <version>${version}</version>
+            </dependency>
             <!--endregion-->
 
             <dependency>
@@ -74,7 +86,7 @@
 
 
             <!--region Testing-->
-            <dependency>
+            <!--<dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
@@ -97,12 +109,12 @@
                 <artifactId>hamcrest</artifactId>
                 <version>${hamcrest.version}</version>
                 <scope>test</scope>
-            </dependency>
+            </dependency>-->
             <!--endregion-->
         </dependencies>
     </dependencyManagement>
 
-    <build>
+    <!--<build>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -124,5 +136,5 @@
                 </executions>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 </project>
