@@ -17,7 +17,7 @@ import ua.ddovgal.mangamonitoring.core.ManagedComponent;
  * lunching and shutting it down, there are no specific methods that need to be implemented. The only thing, an implementation should do is
  * to map external request to API-layer method call and then present the result of that call.
  * <p>
- * For external systems whose user interaction involves some intermediate steps, {@code ua.ddovgal.tracker-kun:states} module could be used.
- * It provides the ability to implement stateful interaction. See the key module class {@code StateMachine} for more details.
+ * For external systems whose user interaction involves some intermediate steps, {@code ua.ddovgal.manga-monitoring:states} module could be
+ * used. It provides the ability to implement stateful interaction. See the key module class {@code StateMachine} for more details.
  */
 public interface UserInputListener extends ManagedComponent {}
