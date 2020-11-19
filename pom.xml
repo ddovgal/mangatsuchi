@@ -12,6 +12,7 @@
     <modules>
         <module>api</module>
         <module>core</module>
+        <module>states</module>
     </modules>
 
     <url>https://github.com/ddovgal/mangatsuchi</url>
@@ -54,12 +55,12 @@
             <dependency>
                 <groupId>ua.ddovgal.manga-monitoring</groupId>
                 <artifactId>api</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>ua.ddovgal.manga-monitoring</groupId>
                 <artifactId>core</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!--endregion-->
 
