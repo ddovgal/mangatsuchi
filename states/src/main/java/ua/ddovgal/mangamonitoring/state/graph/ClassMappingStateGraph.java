@@ -44,18 +44,26 @@ public class ClassMappingStateGraph<I extends Impact, R> implements StateGraph<I
     /**
      * {@inheritDoc}
      * <p/>
-     * It's safe to clarify {@code D} type for each {@link TransitionDescriptor} because {@link #stateAndItsDepartingTransitions} map is
-     * designed in such a way, that for each {@link Map.Entry} the class of its {@code key} will be equal to {@code D} generic of each
-     * {@link TransitionDescriptor} from {@code value} list. This is guarantied by the way {@link #stateAndItsDepartingTransitions} is
-     * created (see {@link #ClassMappingStateGraph(List)}).
+     * It's safe to cast {@code D} generic type for the {@code descriptor} due to the following reasons.
+     * <br>
+     * It's safe to cast {@code D} generic type for the {@code descriptor} due to the following reasons. The casted object is used only by
+     * the {@link DepartureDefinedTransition} constructor, meaning that it is quite enough only that its parameters will be valid. Types of
+     * the parameters for that constructor are [TransitionDescriptor<D, A, I, R> arg1, D arg2]. This means that {@code D} type of the first
+     * argument must be equal to the actual class of the second argument. For our arguments, this means that the actual class of the {@code
+     * state} must be equal to {@code D} type of the {@code descriptor}. And this is already achieved due to the fact that descriptor got
+     * from the {@link #stateAndItsDepartingTransitions} map. It's designed in a way, that for each of its {@link Map.Entry}s, the {@code
+     * key} (which is already a Class) will be exactly the same as {@code D} generic type of each {@link TransitionDescriptor} from {@code
+     * value} list. This is guaranteed by the way {@link #stateAndItsDepartingTransitions} is created, see {@link
+     * #ClassMappingStateGraph(List)}.
      */
-    @SuppressWarnings("unchecked") // check description above
+    @SuppressWarnings("unchecked") // check the description above
     @Override
-    public <D extends State> List<DepartureDefinedTransition<D, ?, I, R>> getDepartingTransitions(D state) {
+    public List<DepartureDefinedTransition<?, ?, I, R>> getDepartingTransitions(State state) {
         return stateAndItsDepartingTransitions
             .getOrDefault(state.getClass(), List.of())
             .stream()
-            .map(descriptor -> (TransitionDescriptor<D, ?, I, R>) descriptor)
+            // this cast is necessary only to be able to create DepartureDefinedTransition
+            .map(descriptor -> (TransitionDescriptor<State, ?, I, R>) descriptor)
             .map(descriptor -> new DepartureDefinedTransition<>(descriptor, state))
             .collect(Collectors.toList());
     }
