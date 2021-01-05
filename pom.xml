@@ -12,6 +12,7 @@
     <modules>
         <module>api</module>
         <module>core</module>
+        <module>states</module>
     </modules>
 
     <url>https://github.com/ddovgal/mangatsuchi</url>
@@ -40,12 +41,11 @@
         <maven.compiler.target>11</maven.compiler.target>
 
         <slf4j-api.version>1.7.30</slf4j-api.version>
-        <log4j-slf4j-impl.version>2.13.0</log4j-slf4j-impl.version>
-        <!--<junit.version>4.12</junit.version>
-        <mockito-core.version>2.24.0</mockito-core.version>
-        <assertj-core.version>3.11.1</assertj-core.version>
-        <hamcrest.version>2.1</hamcrest.version>-->
-        <lombok.version>1.18.12</lombok.version>
+        <log4j-slf4j-impl.version>2.14.0</log4j-slf4j-impl.version>
+        <junit-jupiter.version>5.7.0</junit-jupiter.version>
+        <mockito.version>3.6.28</mockito.version>
+        <assertj-core.version>3.18.1</assertj-core.version>
+        <lombok.version>1.18.16</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -54,12 +54,17 @@
             <dependency>
                 <groupId>ua.ddovgal.manga-monitoring</groupId>
                 <artifactId>api</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>ua.ddovgal.manga-monitoring</groupId>
                 <artifactId>core</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ua.ddovgal.manga-monitoring</groupId>
+                <artifactId>states</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <!--endregion-->
 
@@ -84,16 +89,28 @@
             <!--endregion-->
 
             <!--region Testing-->
-            <!--<dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <version>${junit-jupiter.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>${mockito-core.version}</version>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -102,15 +119,21 @@
                 <version>${assertj-core.version}</version>
                 <scope>test</scope>
             </dependency>
-            <dependency>
-                <groupId>org.hamcrest</groupId>
-                <artifactId>hamcrest</artifactId>
-                <version>${hamcrest.version}</version>
-                <scope>test</scope>
-            </dependency>-->
             <!--endregion-->
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
     <!--<build>
         <plugins>
