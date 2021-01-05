@@ -12,7 +12,7 @@ public class ApplicationLauncher {
 
     /**
      * Starts provided {@code application} and in case of successful start registers shutdown hook that stops started application.
-     * <p>
+     * <p/>
      * Method is non-blocking.
      *
      * @param application application to launch.

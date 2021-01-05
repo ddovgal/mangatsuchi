@@ -25,7 +25,7 @@ public interface ManagedComponent {
     /**
      * Stops component making it non-working. Intended for the end of work actions e.g. clean-up, closing connections, descriptors, make
      * cleanup.
-     * <p>
+     * <p/>
      * Any unhandled missed runtime exception from method implementation will be treated as like component failed while was stopping and
      * then it can't be stopped in any possible way.
      */

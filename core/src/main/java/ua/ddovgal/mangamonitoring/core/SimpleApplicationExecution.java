@@ -51,7 +51,7 @@ public class SimpleApplicationExecution<E> implements ApplicationExecution {
 
     /**
      * Thread-safe, meaning that only one thread at the same time will be able to actually stop execution.
-     * <p>
+     * <p/>
      * Null crashCause means non-exceptional shutdown.
      */
     private void shutdown(Exception crashCause) {

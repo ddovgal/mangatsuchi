@@ -9,7 +9,7 @@ import ua.ddovgal.mangamonitoring.exception.MangaProviderException;
 
 /**
  * Representation of any kind of resource that provides manga.
- * <p>
+ * <p/>
  * It is not just simple descriptor of the resource. Implementations of this interface provides full functionality of that resource, like
  * some kind of service. So that implementations describes manga provider they are representing and how to interact with them.
  */

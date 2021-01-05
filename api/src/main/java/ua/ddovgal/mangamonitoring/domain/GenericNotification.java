@@ -71,7 +71,7 @@ public class GenericNotification {
 
     /**
      * Notification part type. Describes part by name and specifies java class of data.
-     * <p>
+     * <p/>
      * There are some common types listed inside as constant values. Each certain consumer could define its own type, but it's a concern of
      * consumer to keep new type name uniqueness among all others. For such cases better to name types with pattern {@code
      * <consumerName>_<typeName>} (example: TELEGRAM_IMAGE_ALBUM).

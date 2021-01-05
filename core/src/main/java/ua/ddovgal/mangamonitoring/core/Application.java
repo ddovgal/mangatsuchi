@@ -10,7 +10,7 @@ public interface Application<E> {
 
     /**
      * Provides prepared and ready to be used environment. It could build environment during method call or just return already built one.
-     * <p>
+     * <p/>
      * Environment is something like a wrapper for all important for work components, plus it serves like the configuration during startup.
      *
      * @return built and ready to be used application environment.

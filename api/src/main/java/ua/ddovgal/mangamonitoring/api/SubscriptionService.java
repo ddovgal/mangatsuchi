@@ -9,7 +9,7 @@ import ua.ddovgal.mangamonitoring.exception.InvalidIdProvidedException;
 
 /**
  * Service that provides ability to subscription related operations.
- * <p>
+ * <p/>
  * The subscription can be understood as request of the {@link Account} to receive the notifications related to the certain {@link Manga}.
  * In stored data scope words it's just a pair of {@link Account} and {@link Manga}, additional properties are not so important.
  */

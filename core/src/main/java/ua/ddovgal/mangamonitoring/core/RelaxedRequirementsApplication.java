@@ -50,7 +50,7 @@ public abstract class RelaxedRequirementsApplication<E> implements Application<E
 
     /**
      * A relaxed version of {@link Application#start(Object)} that allows fails and exception throwing.
-     * <p>
+     * <p/>
      * The main concept of this method is that it always knows how be in case of exception. In addition to the familiar {@code environment}
      * it also provides {@code rollbackStack} that appends action that should be executed to do the rollback. And inside the method
      * implementation {@code rollbackStack} is called with rollback action right before executing actual one, in the process of steps are
@@ -71,11 +71,11 @@ public abstract class RelaxedRequirementsApplication<E> implements Application<E
     /**
      * A relaxed version of {@link Application#stop(Object)} that allows fails and exception throwing by the separate steps, but still
      * forbids exception throwing by method itself.
-     * <p>
+     * <p/>
      * The main concept of this method is that instead of simply running all stopping at once, whole process splits into independent stages
      * which are registered by {@code stoppingStages} and then subsequently executed, wrapped by exception handling. Such a splitting
      * achieves ability to continue the stopping in case of failure on some stages.
-     * <p>
+     * <p/>
      * Keep in mind that it is expected, that method implementation will specify step actions only, rather than actually running them. You
      * are still able to share data between steps using entire method scope variables, but than you should be twice careful and implement
      * the stopping actions given the fact that those variables could be set incorrectly due a preceding steps' failure.

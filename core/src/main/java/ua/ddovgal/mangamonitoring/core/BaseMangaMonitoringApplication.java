@@ -11,9 +11,9 @@ import ua.ddovgal.mangamonitoring.core.exception.ApplicationStartupException;
 /**
  * First actually manga-monitoring related {@link Application} partial implementation that use self-defined {@link BaseEnvironment} as
  * environment and hence already knows how to be launched.
- * <p>
+ * <p/>
  * Extends {@link RelaxedRequirementsApplication} so its start and stop method can focus on actual application logic.
- * <p>
+ * <p/>
  * Actual final implementation should just create own extended environment and implement {@link Application#getEnvironment()} in any
  * convenient way: it could require already prepared and built environment as input and then just return it, or build a new environment
  * object inside {@link Application#getEnvironment()} method itself.
@@ -51,7 +51,7 @@ public abstract class BaseMangaMonitoringApplication
      * Base environment, requires only necessary for {@link BaseMangaMonitoringApplication} components: {@link UserInputListener} as
      * requests handler i.e user interactions and {@link ChaptersConditionMonitor} as a chapters' tracker. Those two components intended to
      * be main acting units of manga-monitoring application and run each in his own thread.
-     * <p>
+     * <p/>
      * Actual implementations should provide necessary base components and could extend base environment with own private components.
      */
     interface BaseEnvironment {

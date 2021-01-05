@@ -10,25 +10,7 @@ import ua.ddovgal.mangamonitoring.domain.Manga;
  * @param <T> type of {@link AuthenticationData} current notifier works with.
  */
 public interface ConsumerNotifier<T extends AuthenticationData> {
-    //    /**
-    //     * Send plain test message to provided {@code account}. Because of it's simplicity it is expected that every possible consumer will be
-    //     * able to provide this type of notification. Intended to be used for something like fallback type of notification or some general
-    //     * purpose notification.
-    //     *
-    //     * @param account account of user to receive notification.
-    //     * @param message text to send.
-    //     */
-    //    void notifyWithPlainText(Account account, String message);
-    //
-    //    /**
-    //     * Send prepared {@code message} to provided {@code account}. This method intended to just forward received message, hence {@code
-    //     * message} should be already prepared for send and known by certain notifier class.
-    //     *
-    //     * @param <T>     type of message objects for certain notifier.
-    //     * @param account account of user to receive notification.
-    //     * @param message message object to send.
-    //     */
-    //    <T> void notifyWithMessage(Account account, T message);
+
     /**
      * Sends generic {@code notification} to user by provided {@code authData}. It is expected that data for generic notifications will be
      * provided by some privileged user, by sending manually written message, hence notification of this type is triggered by real user

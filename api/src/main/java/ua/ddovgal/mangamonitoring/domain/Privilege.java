@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Privilege that specifies scopes of allowed actions certain user can do.
+ * Privilege that determines scope of allowed actions, certain user can do. Access level in other words.
  */
 @RequiredArgsConstructor
 public enum Privilege {
@@ -21,7 +21,7 @@ public enum Privilege {
 
     /**
      * Creator, It's me :)
-     * <p>
+     * <p/>
      * Can create and destroy, has god abilities.
      */
     CREATOR(2);

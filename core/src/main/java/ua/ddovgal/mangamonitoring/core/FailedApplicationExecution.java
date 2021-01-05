@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Represent implementation of the single case — application failed during startup.
- * <p>
+ * <p/>
  * Fulfills listed in {@link Application#start(Object)} fail scenario requirements.
  *
  * @see ua.ddovgal.mangamonitoring.core.ApplicationExecution

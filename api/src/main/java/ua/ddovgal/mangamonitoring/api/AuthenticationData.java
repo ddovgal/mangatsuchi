@@ -12,7 +12,7 @@ public abstract class AuthenticationData {
      * Username of user in scope of current consumer.
      */
     @Getter
-    private String username;
+    private final String username;
 
     /**
      * Creates new authentication data object with username. In this case it is assumed that {@code username} serves as an identifier. It is
@@ -33,14 +33,15 @@ public abstract class AuthenticationData {
      * @param username   username of user in scope of consumer.
      * @param identifier identifier of user in scope of consumer.
      */
-    public AuthenticationData(String username, String identifier) {
+    //todo: do I really need it in this way? I mean deserialization using this constructor ?
+    protected AuthenticationData(String username, String identifier) {
         this.username = username;
         processIdentifier(identifier);
     }
 
     /**
      * Returns user identifier of current authentication data, constructed from internal components. The only expected purpose of this
-     * method is deserialization case.
+     * method is serialization case.
      *
      * @return user identifier of current authentication data.
      */
